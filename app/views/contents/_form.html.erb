@@ -16,9 +16,10 @@
     <%= form.text_field :title %>
   </div>
 
-  <div>
-    <%= form.label :text, style: "display: block" %>
-    <%= form.text_area :text %>
+  
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.rich_text_area :content %>
   </div>
 
   <div>
