@@ -1,0 +1,20 @@
+<%= form_with(model: publisher_content, url: publisher_publisher_contents_path(@publisher)) do |form| %>
+  <% if publisher_content.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(publisher_content.errors.count, "error") %> prohibited this publisher from being saved:</h2>
+
+      <ul>
+        <% publisher_content.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :content_id, style: "display: block" %>
+    <%= form.select(:content_id, options_for_select(@contents, :content_id), {:prompt => t('action.please_select')},{class: "form-control", required: "true"  }) %>
+  </div>
+    <%= form.submit %>
+  </div>
+<% end %>

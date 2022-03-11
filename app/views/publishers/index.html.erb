@@ -1,14 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Publishers</h1>
-
 <div id="publishers">
-  <% @publishers.each do |publisher| %>
-    <%= render publisher %>
-    <p>
-      <%= link_to "Show this publisher", publisher %>
-    </p>
-  <% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @publishers.each_with_index do |publisher, index| %>
+    <tr>
+      <th scope="row"><%= index + 1%></th>
+      <td><%= publisher.name%></td>
+      <td><%= link_to "Show this publisher", publisher %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
 </div>
 
 <%= link_to "New publisher", new_publisher_path %>

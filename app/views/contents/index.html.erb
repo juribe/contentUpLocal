@@ -3,12 +3,24 @@
 <h1>Contents</h1>
 
 <div id="contents">
-  <% @contents.each do |content| %>
-    <%= render content %>
-    <p>
-      <%= link_to "Show this content", content %>
-    </p>
-  <% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @contents.each_with_index do |content, index| %>
+    <tr>
+      <th scope="row"><%= index + 1%></th>
+      <td><%= content.title%></td>
+      <td><%= link_to "Show this content", content %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
 </div>
 
 <%= link_to "New content", new_content_path %>

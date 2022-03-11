@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h3>Publishers Contents</h3>
+
+<div id="publishers">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @publisher_contents.each_with_index do |content, index| %>
+    <tr>
+      <th scope="row"><%= index + 1%></th>
+      <td><%= content.content.title%></td>
+      <td><%= link_to "Show this content", content.content %></td>
+      <td><%= link_to "Preview", preview_publisher_publisher_content_path(@publisher, content), target: "_blank" %></td>
+    </tr>
+   <% end %>
+  </tbody>
+</table>
+</div>
+
+<%= link_to "New publisher content", new_publisher_publisher_content_path(@publisher) %>
